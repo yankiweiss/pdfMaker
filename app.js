@@ -48,8 +48,8 @@ app.post("/print", (req, res) => {
         {
         table: {
           body: [
-            	['Column 1', 'Column 2', 'Column 3'],
-					['One value goes here', 'Another one here', 'OK?']
+            	['Column 1', 'Column 2', 'Column 3', 'Column 4' ],
+					['One value goes here', 'Another one here', 'OK?', 'Jacob Weiss']
           ]
 
           
