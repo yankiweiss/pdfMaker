@@ -45,6 +45,16 @@ app.post("/print", (req, res) => {
       content: [
         { text: `Report for ${title}`, fontSize: 16, alignment: 'center' },
         "This PDF is generated using pdfmake.",
+        {
+        table: {
+          body: [
+            	['Column 1', 'Column 2', 'Column 3'],
+					['One value goes here', 'Another one here', 'OK?']
+          ]
+
+          
+        }
+      }
       ],
       defaultStyle: { font: "Roboto" },
     };
