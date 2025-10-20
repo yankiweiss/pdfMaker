@@ -43,7 +43,7 @@ app.post("/print", (req, res) => {
 
     const docDefinition = {
       content: [
-        { text: title, fontSize: 16 },
+        { text: title, fontSize: 16, alignment: 'center' },
         "This PDF is generated using pdfmake.",
       ],
       defaultStyle: { font: "Roboto" },
