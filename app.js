@@ -5,7 +5,11 @@ const path = require('path')
 const  cors = require('cors');
 
 
-app.use(cors());
+app.use(cors({
+  origin: '*', // or restrict to your Retool domain
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+}));
 
 const vfs = require('./fonts/vfs_fonts')
 
