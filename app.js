@@ -2,6 +2,10 @@ const express = require('express');
 const PdfPrinter = require('pdfmake');
 const fs = require('fs')
 const path = require('path')
+import cors from 'cors';
+
+
+app.use(cors());
 
 const vfs = require('./fonts/vfs_fonts')
 
@@ -26,30 +30,31 @@ app.get('/', (req, res) => {
 
 const printer = new PdfPrinter(fonts);
 
-app.post('/print', (req, res) => {
+app.post("/print", (req, res) => {
   try {
     const docDefinition = {
       content: [
-        { text: 'Hello PDF!', fontSize: 16 },
-        'This PDF is generated using pdfmake.'
+        { text: "Hello PDF!", fontSize: 16 },
+        "This PDF is generated using pdfmake.",
       ],
-      defaultStyle: { font: 'Roboto' }
+      defaultStyle: { font: "Roboto" },
     };
 
+    // create the PDF document
     const pdfDoc = printer.createPdfKitDocument(docDefinition);
 
-    // Set headers to open PDF in browser
-    res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', 'attachment; filename="example.pdf"');
+    // set response headers so browser knows it's a PDF file
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Disposition", "attachment; filename=example.pdf");
 
+    // pipe the PDF stream directly to the HTTP response
     pdfDoc.pipe(res);
     pdfDoc.end();
   } catch (err) {
     console.error(err);
-    res.status(500).send('Error generating PDF');
+    res.status(500).send("Error generating PDF");
   }
 });
-
 
 
 
