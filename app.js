@@ -4,6 +4,8 @@ const fs = require('fs')
 const path = require('path')
 const  cors = require('cors');
 
+const app = express()
+
 
 app.use(cors({
   origin: '*', // or restrict to your Retool domain
@@ -24,7 +26,7 @@ const fonts = {
 
 
 
-const app = express()
+
 
 app.use(express.json());
 
