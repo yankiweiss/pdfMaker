@@ -2,7 +2,7 @@ const express = require('express');
 const PdfPrinter = require('pdfmake');
 const fs = require('fs')
 const path = require('path')
-import cors from 'cors';
+const  cors = require('cors');
 
 
 app.use(cors());
