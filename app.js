@@ -38,9 +38,12 @@ const printer = new PdfPrinter(fonts);
 
 app.post("/print", (req, res) => {
   try {
+
+    const {title } = req.body;
+
     const docDefinition = {
       content: [
-        { text: "Hello PDF!", fontSize: 16 },
+        { text: title, fontSize: 16 },
         "This PDF is generated using pdfmake.",
       ],
       defaultStyle: { font: "Roboto" },
