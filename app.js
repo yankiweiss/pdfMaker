@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 
 const printer = new PdfPrinter(fonts);
 
-app.get('/print', (req, res) => {
+app.post('/print', (req, res) => {
   try {
     const docDefinition = {
       content: [
