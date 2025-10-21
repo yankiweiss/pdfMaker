@@ -42,9 +42,17 @@ app.post("/print", (req, res) => {
     const {title } = req.body;
 
     const docDefinition = {
-      content: [
-        { text: `Report for ${title}`, fontSize: 16, alignment: 'center' }
-        
+       content: [
+        { text: `Report for ${title}`, fontSize: 16, alignment: 'center' },
+        "This PDF is generated using pdfmake.",
+        {
+        table: {
+          body: [
+            	['Sq ft', 'Unit', 'Lease start Date', 'Lease End date' ],
+					['One value goes here', 'Another one here', 'OK?', 'Jacob Weiss']
+          ]
+        }
+      }
       ],
       defaultStyle: { font: "Roboto" },
     };
