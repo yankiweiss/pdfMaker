@@ -39,11 +39,11 @@ const printer = new PdfPrinter(fonts);
 app.post("/print", (req, res) => {
   try {
 
-    const {title } = req.body;
+    const {email } = req.body;
 
     const docDefinition = {
        content: [
-        { text: `Report for ${title}`, fontSize: 16, alignment: 'center' },
+        { text: `Report for ${email}`, fontSize: 16, alignment: 'center' },
         "This PDF is generated using pdfmake.",
         {
         table: {
